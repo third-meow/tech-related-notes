@@ -1,0 +1,46 @@
+<html>
+	<head><title>all-setup</title>
+	<h1 style="color: blue">My defualt raspbian setup</h1></head>
+	<body>
+		<h3 style="color: green">Users</h3>
+		<p>
+			adduser [user]<br>
+			passwd [user]<br>
+		</p>
+		<h5 style="color: red">Visudo</h5>
+		<p>
+			su root
+			visudo
+		</p>
+		<p>
+			# Allow members of group sudo to execute any command<br>
+			%sudo   ALL=(ALL:ALL) ALL<br>
+			%jds    ALL= NOPASSWD: ALL<br>
+		</p>
+		<h3 style="color: green">Wifi</h3>
+		<p>
+			sudo nano /etc/wpa_supplicant/wpa_supplicant.conf<br>
+		</p>
+		<p>
+			
+			country=NZ<br>
+			ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>
+			update_config=1<br>
+			
+			network={<br>
+			ssid="fivebyfive"<br>
+			psk="<em>password</em>"<br>
+			}<br>	
+		</p>
+		<h3 style="color: green">Static IP</h3>
+		<p>
+			sudo nano /etc/dhcpcd.conf<br>
+		</p>
+		<p>
+			interface <em>wlan0</em> or <em>eth0</em><br>
+			static ip_address=192.168.10.<em>???</em><br>
+			static routers=192.168.10.1<br>
+			static domain_name_servers= 8.8.8.8<br>
+		</p>
+		
+</html>
